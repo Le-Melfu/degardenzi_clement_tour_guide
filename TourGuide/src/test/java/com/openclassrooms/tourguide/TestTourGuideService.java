@@ -8,7 +8,7 @@ import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 
-import com.openclassrooms.tourguide.models.dtos.NearbyAttractionsJson;
+import com.openclassrooms.tourguide.models.dtos.NearbyAttractionsDto;
 
 import gpsUtil.GpsUtil;
 import gpsUtil.location.VisitedLocation;
@@ -102,7 +102,7 @@ public class TestTourGuideService {
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
 		VisitedLocation visitedLocation = tourGuideService.trackUserLocation(user);
 
-		NearbyAttractionsJson result = tourGuideService.getNearByAttractions(visitedLocation, user);
+		NearbyAttractionsDto result = tourGuideService.getNearByAttractions(visitedLocation, user);
 
 		tourGuideService.tracker.stopTracking();
 

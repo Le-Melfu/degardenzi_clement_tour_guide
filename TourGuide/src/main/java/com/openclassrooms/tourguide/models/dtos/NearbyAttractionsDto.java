@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NearbyAttractionsJson {
+public class NearbyAttractionsDto {
 
 	private UserLocationDto userLocation;
 	private List<NearbyAttractionItemDto> nearbyAttractions;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import gpsUtil.location.VisitedLocation;
 
-import com.openclassrooms.tourguide.models.dtos.NearbyAttractionsJson;
+import com.openclassrooms.tourguide.models.dtos.NearbyAttractionsDto;
 import com.openclassrooms.tourguide.service.TourGuideService;
 import com.openclassrooms.tourguide.user.User;
 import com.openclassrooms.tourguide.user.UserReward;
@@ -33,7 +33,7 @@ public class TourGuideController {
     }
 
     @RequestMapping("/getNearbyAttractions")
-    public NearbyAttractionsJson getNearbyAttractions(@RequestParam String userName) {
+    public NearbyAttractionsDto getNearbyAttractions(@RequestParam String userName) {
         User user = getUser(userName);
         VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
         return tourGuideService.getNearByAttractions(visitedLocation, user);

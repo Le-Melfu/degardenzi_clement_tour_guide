@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.openclassrooms.tourguide.models.dtos.NearbyAttractionItemDto;
-import com.openclassrooms.tourguide.models.dtos.NearbyAttractionsJson;
+import com.openclassrooms.tourguide.models.dtos.NearbyAttractionsDto;
 import com.openclassrooms.tourguide.models.dtos.UserLocationDto;
 
 import gpsUtil.GpsUtil;
@@ -98,7 +98,7 @@ public class TourGuideService {
 		return visitedLocation;
 	}
 
-	public NearbyAttractionsJson getNearByAttractions(VisitedLocation visitedLocation, User user) {
+	public NearbyAttractionsDto getNearByAttractions(VisitedLocation visitedLocation, User user) {
 		HashMap<Attraction, Double> attractionDistances = new HashMap<>();
 		for (Attraction attraction : gpsUtil.getAttractions()) {
 			double distance = rewardsService.getDistance(visitedLocation.location, attraction);
@@ -116,7 +116,7 @@ public class TourGuideService {
 						entry.getValue(),
 						rewardsService.getRewardPoints(entry.getKey(), user)))
 				.collect(Collectors.toList());
-		return new NearbyAttractionsJson(userLocation, nearbyAttractions);
+		return new NearbyAttractionsDto(userLocation, nearbyAttractions);
 	}
 
 	private void addShutDownHook() {
