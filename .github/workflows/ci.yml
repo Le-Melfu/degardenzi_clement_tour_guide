@@ -39,7 +39,7 @@ jobs:
             - name: Compile
               run: mvn compile
 
-            # 5. ÉTAPE 2 - Tests (sans les tests de performance)
+            # 5. ÉTAPE 2 - Tests
             - name: Run tests
               run: mvn test
 
